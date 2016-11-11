@@ -20,7 +20,6 @@ func main() {
 	limit := limits{1, 10}
 	var guessStack []int
 	numberToGuess := getRandomNumber(limit.bottom, limit.top)
-	fmt.Println(numberToGuess)
 	fmt.Printf("Hello! I have generated a randon number between %d and %d. Can you guess it?\n", limit.bottom, limit.top)
 	fmt.Println("Press CTRL-C to exit at any time!")
 	tries := 1
