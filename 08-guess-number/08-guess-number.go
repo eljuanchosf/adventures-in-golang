@@ -25,15 +25,27 @@ func main() {
 	tries := 1
 	for {
 		userGuess := askForNumber("Please enter a number: ")
-		if userGuess != numberToGuess {
+		if userGuessed(numberToGuess, userGuess) {
+			fmt.Printf("Yesss!! You guessed in %d tries!!\n", tries)
+			break
+		} else {
 			if !guessInStack(userGuess, guessStack) {
 				guessStack = append(guessStack, userGuess)
 				tries++
 			}
-		} else {
-			fmt.Printf("Yesss!! You guessed in %d tries!!\n", tries)
-			break
 		}
+	}
+}
+
+func userGuessed(numberToGuess int, userGuess int) bool {
+	if userGuess < numberToGuess {
+		fmt.Println("Too low!")
+		return false
+	} else if userGuess > numberToGuess {
+		fmt.Println("Too high!")
+		return false
+	} else {
+		return true
 	}
 }
 
