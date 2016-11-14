@@ -2,6 +2,27 @@ package main
 
 import "testing"
 
+func Test_userGuessedIs(t *testing.T) {
+	type args struct {
+		numberToGuess int
+		userGuess     int
+	}
+	tests := []struct {
+		name string
+		args args
+		want guessResult
+	}{
+		{"User guess is too low", args{10, 9}, lower},
+		{"User guess is too high", args{10, 11}, higher},
+		{"User guess is equal", args{10, 10}, equal},
+	}
+	for _, tt := range tests {
+		if got := userGuessedIs(tt.args.numberToGuess, tt.args.userGuess); got != tt.want {
+			t.Errorf("%q. userGuessedIs(%d, %d) = %v, want %v", tt.name, tt.args.numberToGuess, tt.args.userGuess, got, tt.want)
+		}
+	}
+}
+
 func Test_guessInStack(t *testing.T) {
 	tests := []struct {
 		name  string

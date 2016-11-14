@@ -16,6 +16,14 @@ type limits struct {
 	top    int
 }
 
+type guessResult int
+
+const (
+	equal guessResult = iota
+	lower
+	higher
+)
+
 func main() {
 	limit := limits{1, 10}
 	var guessStack []int
@@ -25,27 +33,29 @@ func main() {
 	tries := 1
 	for {
 		userGuess := askForNumber("Please enter a number: ")
-		if userGuessed(numberToGuess, userGuess) {
+		switch userGuessedIs(numberToGuess, userGuess) {
+		case lower:
+			fmt.Println("Too low!")
+		case higher:
+			fmt.Println("Too high!")
+		case equal:
 			fmt.Printf("Yesss!! You guessed in %d tries!!\n", tries)
 			break
-		} else {
-			if !guessInStack(userGuess, guessStack) {
-				guessStack = append(guessStack, userGuess)
-				tries++
-			}
+		}
+		if !guessInStack(userGuess, guessStack) {
+			guessStack = append(guessStack, userGuess)
+			tries++
 		}
 	}
 }
 
-func userGuessed(numberToGuess int, userGuess int) bool {
+func userGuessedIs(numberToGuess int, userGuess int) guessResult {
 	if userGuess < numberToGuess {
-		fmt.Println("Too low!")
-		return false
+		return lower
 	} else if userGuess > numberToGuess {
-		fmt.Println("Too high!")
-		return false
+		return higher
 	} else {
-		return true
+		return equal
 	}
 }
 
