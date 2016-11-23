@@ -9,13 +9,9 @@ func InsertionSort(array []int) []int {
 	for element := 1; element < elementCount; element++ {
 		tmp := array[element]
 		subElement := element - 1
-		for {
-			if subElement >= 0 && tmp < array[subElement] {
-				array[subElement+1] = array[subElement]
-				subElement--
-			} else {
-				break
-			}
+		for subElement >= 0 && tmp < array[subElement] {
+			array[subElement+1] = array[subElement]
+			subElement--
 		}
 		array[subElement+1] = tmp
 	}
