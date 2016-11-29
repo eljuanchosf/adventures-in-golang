@@ -1,5 +1,7 @@
 package sorting
 
+import "github.com/eljuanchosf/adventures-in-golang/shared"
+
 //BubleSort sorts an array of integers by swapping two elements at once, iteratively
 func BubleSort(array []int) []int {
 	elementCount := len(array) - 1
@@ -9,7 +11,7 @@ func BubleSort(array []int) []int {
 			elementB := elementA + 1
 			if array[elementA] > array[elementB] {
 				swapped = true
-				SwapInt(array, elementA, elementB)
+				shared.SwapInt(array, elementA, elementB)
 			}
 		}
 		if !swapped {

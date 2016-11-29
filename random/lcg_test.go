@@ -1,7 +1,10 @@
 package random
 
-import "testing"
-import "github.com/eljuanchosf/adventures-in-golang/sorting"
+import (
+	"testing"
+
+	"github.com/eljuanchosf/adventures-in-golang/shared"
+)
 
 func Test_GetLCGRandomNumber(t *testing.T) {
 	type args struct {
@@ -21,7 +24,7 @@ func Test_GetLCGRandomNumber(t *testing.T) {
 
 	for _, test := range tests {
 		got := GetLCGRandomNumber(test.args.seed, test.args.a, test.args.b, test.args.m)
-		if !sorting.CompareArrays(got, test.want) {
+		if !shared.CompareArrays(got, test.want) {
 			t.Errorf("%q, GetLCGRandomNumber(), expected %d, got %d", test.name, test.want, got)
 		}
 	}

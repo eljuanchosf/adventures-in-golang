@@ -1,13 +1,17 @@
 package sorting
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/eljuanchosf/adventures-in-golang/shared"
+)
 
 func Test_MergeSort(t *testing.T) {
-	tests := testCases()
+	tests := shared.TestCases()
 	for _, test := range tests {
-		testArray := MergeSort(test.array)
-		if CompareArrays(testArray, test.want) == false {
-			t.Errorf("%q, MergeSort(), expected %v, got %v", test.name, test.want, testArray)
+		testArray := MergeSort(test.Array)
+		if shared.CompareArrays(testArray, test.Want) == false {
+			t.Errorf("%q, MergeSort(), expected %v, got %v", test.Name, test.Want, testArray)
 		}
 	}
 }

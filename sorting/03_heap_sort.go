@@ -1,5 +1,7 @@
 package sorting
 
+import "github.com/eljuanchosf/adventures-in-golang/shared"
+
 //HeapSort sorts an array of integers by swapping two elements at once, iteratively
 func HeapSort(array []int) []int {
 	elementCount := len(array)
@@ -7,7 +9,7 @@ func HeapSort(array []int) []int {
 		heapify(array, elementCount, index)
 	}
 	for index := elementCount - 1; index >= 0; index-- {
-		SwapInt(array, 0, index)
+		shared.SwapInt(array, 0, index)
 		heapify(array, index, 0)
 	}
 	return array
@@ -26,7 +28,7 @@ func heapify(array []int, heapSize int, index int) {
 	}
 
 	if largest != index {
-		SwapInt(array, index, largest)
+		shared.SwapInt(array, index, largest)
 		heapify(array, heapSize, largest)
 	}
 }
