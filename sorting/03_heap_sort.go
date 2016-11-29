@@ -7,7 +7,7 @@ func HeapSort(array []int) []int {
 		heapify(array, elementCount, index)
 	}
 	for index := elementCount - 1; index >= 0; index-- {
-		swapInt(array, 0, index)
+		SwapInt(array, 0, index)
 		heapify(array, index, 0)
 	}
 	return array
@@ -26,7 +26,7 @@ func heapify(array []int, heapSize int, index int) {
 	}
 
 	if largest != index {
-		swapInt(array, index, largest)
+		SwapInt(array, index, largest)
 		heapify(array, heapSize, largest)
 	}
 }

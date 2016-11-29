@@ -9,7 +9,7 @@ func BubleSort(array []int) []int {
 			elementB := elementA + 1
 			if array[elementA] > array[elementB] {
 				swapped = true
-				swapInt(array, elementA, elementB)
+				SwapInt(array, elementA, elementB)
 			}
 		}
 		if !swapped {

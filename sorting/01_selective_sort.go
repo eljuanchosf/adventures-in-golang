@@ -8,7 +8,7 @@ func SelectiveSort(array []int) []int {
 	for startIndex := 0; startIndex < len(array); startIndex++ {
 		position := findSmallestElement(array, startIndex, len(array)-1)
 		if array[startIndex] > array[position] {
-			swapInt(array, position, startIndex)
+			SwapInt(array, position, startIndex)
 		}
 	}
 	return array

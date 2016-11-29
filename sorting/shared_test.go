@@ -2,11 +2,11 @@ package sorting
 
 import "testing"
 
-func Test_swapInt(t *testing.T) {
+func Test_SwapInt(t *testing.T) {
 	array := []int{2, 1}
-	swapInt(array, 0, 1)
+	SwapInt(array, 0, 1)
 	if array[0] != 1 {
-		t.Error("swapInt is not working correctly")
+		t.Error("SwapInt is not working correctly")
 	}
 }
 

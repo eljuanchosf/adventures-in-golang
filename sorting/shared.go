@@ -6,7 +6,8 @@ type testCase struct {
 	want  []int
 }
 
-func swapInt(array []int, positionA int, positionB int) {
+//SwapInt swaps two positions in an array of integers
+func SwapInt(array []int, positionA, positionB int) {
 	swapElement := array[positionA]
 	array[positionA] = array[positionB]
 	array[positionB] = swapElement
@@ -59,7 +60,7 @@ func flipArray(array []int, startIndex, endIndex int) {
 	i := startIndex
 	j := endIndex
 	for i < j {
-		swapInt(array, i, j)
+		SwapInt(array, i, j)
 		i++
 		j--
 	}
