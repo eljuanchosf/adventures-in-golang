@@ -36,7 +36,8 @@ func findBiggestElement(array []int, startIndex, endIndex int) (position int) {
 	return
 }
 
-func compareArrays(a, b []int) bool {
+//CompareArrays compares two arrays to see if they match element by element
+func CompareArrays(a, b []int) bool {
 	if a == nil && b == nil {
 		return true
 	}

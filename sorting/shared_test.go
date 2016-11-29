@@ -54,7 +54,7 @@ func Test_findBiggestElement(t *testing.T) {
 	}
 }
 
-func Test_compareArrays(t *testing.T) {
+func Test_CompareArrays(t *testing.T) {
 	type args struct {
 		arrayA []int
 		arrayB []int
@@ -71,8 +71,8 @@ func Test_compareArrays(t *testing.T) {
 		{"ArrayB is null", args{arrayA: []int{}}, false},
 	}
 	for _, test := range tests {
-		if got := compareArrays(test.args.arrayA, test.args.arrayB); got != test.want {
-			t.Errorf("%q, compareArrays(), expected %v, got %v.", test.name, test.want, got)
+		if got := CompareArrays(test.args.arrayA, test.args.arrayB); got != test.want {
+			t.Errorf("%q, CompareArrays(), expected %v, got %v.", test.name, test.want, got)
 		}
 	}
 }
@@ -95,7 +95,7 @@ func Test_flipArray(t *testing.T) {
 		array := make([]int, len(test.args.array))
 		copy(array, test.args.array)
 		flipArray(array, test.args.startIndex, test.args.endIndex)
-		if compareArrays(array, test.want) == false {
+		if CompareArrays(array, test.want) == false {
 			t.Errorf("%q, flipArray(), original %v, expected %v, got %v", test.name, test.args.array, test.want, array)
 		}
 	}
