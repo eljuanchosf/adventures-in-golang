@@ -1,9 +1,6 @@
-package numbers
+package factoring
 
-import (
-	"fmt"
-	"math"
-)
+import "math"
 
 func factorsOf(number int64) (factors []int64) {
 
@@ -20,7 +17,6 @@ func factorsOf(number int64) (factors []int64) {
 			factors = append(factors, int64(factor))
 			number = number / int64(factor)
 			stop = math.Sqrt(float64(number))
-			fmt.Printf("stop: %f\n", stop)
 		}
 		factor += 2
 	}
