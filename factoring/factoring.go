@@ -4,6 +4,12 @@ import "math"
 
 func factorsOf(number int64) (factors []int64) {
 
+	factors = []int64{}
+
+	if number == 0 {
+		return
+	}
+
 	for number%2 == 0 {
 		factors = append(factors, 2)
 		number = number / 2
