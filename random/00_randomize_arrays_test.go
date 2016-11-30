@@ -16,13 +16,13 @@ func Test_RandomizeArray1(t *testing.T) {
 	}
 
 	for _, test := range tests {
-		originalArray := shared.CopyArray(test.array)
-		RandomizeArray1(test.array)
-		if len(originalArray) != len(test.array) {
-			t.Errorf("%q, RandomizeArray1(), len of randomized array is %d, expected %d", test.name, len(test.array), len(originalArray))
+		got := shared.CopyArray(test.array)
+		RandomizeArray1(got)
+		if len(got) != len(test.array) {
+			t.Errorf("%q, RandomizeArray1(), len of randomized array is %d, expected %d", test.name, len(got), len(test.array))
 		}
-		if shared.CompareArrays(originalArray, test.array) {
-			t.Errorf("%q, RandomizeArray1(), didn't expect %d, got %d", test.name, originalArray, test.array)
+		if shared.CompareArrays(got, test.array) {
+			t.Errorf("%q, RandomizeArray1(), didn't expect %d, got %d", test.name, test.array, got)
 		}
 	}
 }
