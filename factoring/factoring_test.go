@@ -19,7 +19,7 @@ func Test_factorsOf(t *testing.T) {
 		{"Factors of a... large number.", args{123456789012345678}, []int64{2, 3, 3, 3, 21491747, 106377431}},
 	}
 	for _, tt := range tests {
-		if gotFactors := factorsOf(tt.args.number); !reflect.DeepEqual(gotFactors, tt.wantFactors) {
+		if gotFactors := FactorsOf(tt.args.number); !reflect.DeepEqual(gotFactors, tt.wantFactors) {
 			t.Errorf("%q. factorsOf() = %v, want %v", tt.name, gotFactors, tt.wantFactors)
 		}
 	}

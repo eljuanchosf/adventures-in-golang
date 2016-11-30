@@ -2,7 +2,8 @@ package factoring
 
 import "math"
 
-func factorsOf(number int64) (factors []int64) {
+//FactorsOf returns an array of int64 with the factors of the number argument
+func FactorsOf(number int64) (factors []int64) {
 
 	factors = []int64{}
 
