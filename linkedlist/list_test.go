@@ -20,7 +20,7 @@ func buildLinkedList() (l LinkedList) {
 func Test_Add(t *testing.T) {
 	l := buildLinkedList()
 	want := 8
-	if got := l.Top.Next.Next.Value; got != want {
+	if got := l.Top.Next.Next.Next.Value; got != want {
 		t.Errorf("LinkedList.Add(), expected %d, got %d", want, got)
 	}
 }

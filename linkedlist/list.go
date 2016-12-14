@@ -17,11 +17,7 @@ func (l *LinkedList) Add(value int) {
 	for current.Next != nil {
 		current = current.Next
 	}
-	if current.Value == 0 && current.Next == nil {
-		current.Value = value
-	} else {
-		current.Next = &Cell{Value: value}
-	}
+	current.Next = &Cell{Value: value}
 }
 
 //InsertAfter inserts a value after the item
@@ -69,7 +65,7 @@ func (l *LinkedList) RemoveFromStart() {
 
 //ToArray flattens the list to an array
 func (l *LinkedList) ToArray() (arr []int) {
-	current := &l.Top
+	current := l.Top.Next
 	arr = append(arr, current.Value)
 	for current.Next != nil {
 		current = current.Next
