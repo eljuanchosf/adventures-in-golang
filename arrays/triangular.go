@@ -23,6 +23,11 @@ func (ta *TriSlice) Get(row, col int) (val int) {
 	return ta.Values[mapRowCol(row, col)]
 }
 
+//Size returns the number of elements in the array
+func (ta *TriSlice) Size() int {
+	return len(ta.Values)
+}
+
 func mapRowCol(row, col int) (idx int) {
 	if row < col {
 		tr := row
