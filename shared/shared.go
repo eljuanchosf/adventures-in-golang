@@ -1,5 +1,7 @@
 package shared
 
+import "math"
+
 //TestCase defines the basic structure of a test case
 type TestCase struct {
 	Name  string
@@ -85,4 +87,31 @@ func TestCases() []TestCase {
 		{"Only two", []int{2, 1}, []int{1, 2}},
 		{"Only one", []int{1}, []int{1}},
 	}
+}
+
+//Avg returns a float32 that represents the average value for an array of integers
+func Avg(array []int) (avg float32) {
+	sum := 0
+	for _, element := range array {
+		sum += element
+	}
+	avg = float32(sum) / float32(len(array))
+	return
+}
+
+//Variance returns a float32 that represents the variance value for an array of integers
+func Variance(array []int) (variance float32) {
+	var sum float32
+	mean := Avg(array)
+	sum = 0.0
+	for _, element := range array {
+		sum += (float32(element) - mean) * (float32(element) - mean)
+	}
+	variance = sum / float32(len(array))
+	return
+}
+
+//StdDev returns a float32 that represents the standard deviation value for an array of integers
+func StdDev(array []int) (stdDev float32) {
+	return float32(math.Sqrt(float64(Variance(array))))
 }

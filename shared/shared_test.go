@@ -115,3 +115,60 @@ func Test_CopyArray(t *testing.T) {
 		}
 	}
 }
+
+func Test_ArrayAverage(t *testing.T) {
+	type args struct {
+		array []int
+	}
+	tests := []struct {
+		name string
+		args args
+		want float32
+	}{
+		{"5 elements", args{[]int{1, 2, 3, 4, 5}}, 3.0},
+		{"11 elements", args{[]int{1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}}, 5.090909},
+	}
+	for _, test := range tests {
+		if got := Avg(test.args.array); got != test.want {
+			t.Errorf("%q, Avg(), original %v, expected %v, got %v", test.name, test.args.array, test.want, got)
+		}
+	}
+}
+
+func Test_ArrayVariance(t *testing.T) {
+	type args struct {
+		array []int
+	}
+	tests := []struct {
+		name string
+		args args
+		want float32
+	}{
+		{"5 elements", args{[]int{1, 2, 3, 4, 5}}, 2},
+		{"11 elements", args{[]int{1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}}, 9.17355371},
+	}
+	for _, test := range tests {
+		if got := Variance(test.args.array); got != test.want {
+			t.Errorf("%q, Variance(), original %v, expected %v, got %v", test.name, test.args.array, test.want, got)
+		}
+	}
+}
+
+func Test_ArrayStdDeviation(t *testing.T) {
+	type args struct {
+		array []int
+	}
+	tests := []struct {
+		name string
+		args args
+		want float32
+	}{
+		{"5 elements", args{[]int{1, 2, 3, 4, 5}}, 1.41421356},
+		{"11 elements", args{[]int{1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}}, 3.0287874},
+	}
+	for _, test := range tests {
+		if got := StdDev(test.args.array); got != test.want {
+			t.Errorf("%q, StdDev(), original %v, expected %v, got %v", test.name, test.args.array, test.want, got)
+		}
+	}
+}
